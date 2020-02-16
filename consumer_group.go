@@ -93,8 +93,8 @@ func NewConsumerGroupFromClient(groupID string, client Client) (ConsumerGroup, e
 
 func newConsumerGroup(groupID string, client Client) (ConsumerGroup, error) {
 	config := client.Config()
-	if !config.Version.IsAtLeast(V0_10_2_0) {
-		return nil, ConfigurationError("consumer groups require Version to be >= V0_10_2_0")
+	if !config.Version.IsAtLeast(V0_10_1_0) {
+		return nil, ConfigurationError("consumer groups require Version to be >= V0_10_1_0")
 	}
 
 	consumer, err := NewConsumerFromClient(client)
